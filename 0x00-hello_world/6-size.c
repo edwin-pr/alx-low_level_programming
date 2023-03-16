@@ -1,12 +1,8 @@
-/**
-* print size of different types
-*/
-
 #include<stdio.h>
 
 /**
-* main - prints different types on the computer
-* Return: 0 if successfull
+* main - A program that  prints the size of  different types on the computer
+* Return: 0, if successfull
 */
 int main(void)
 {
