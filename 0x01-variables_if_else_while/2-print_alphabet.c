@@ -1,18 +1,21 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
- * main - main function
- *Return: 0 always successful
+ * main - print lowercase a-z
+ * Return: Always 0 (Success)
  */
+
 int main(void)
 {
-	char i;
+	char alpha = 'a';
 
-	for (i = 'a'; i <= 'z'; i++)
+	while (alpha <= 'z')
 	{
-		putchar(i);
+		putchar(alpha);
+		alpha++;
 	}
-	putchar("\n");
-	return (0);
+	putchar('\n');
 
+
+	return (0);
 }
