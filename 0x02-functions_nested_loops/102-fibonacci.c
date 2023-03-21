@@ -1,4 +1,4 @@
-#include<stdio.h>
+#include <stdio.h>
 
 /**
  * main - prints first 50 fibonacci numbers
@@ -13,16 +13,12 @@ int main(void)
 	c = 2;
 	d = 3;
 
-	for (a = 0; a <= 50; a++)
+	for (a = 0; a < 50; a++)
 	{
 		if (a != 49)
-		{
 			printf("%ld, ", b);
-		}
 		else
-		{
 			printf("%ld\n", b);
-		}
 		d = c + d;
 		c = b + c;
 		b = d - c;
