@@ -22,7 +22,7 @@ int _atoi(char *s)
 		if (s[len] >= '0' && s[len] <= '9')
 		{
 			numcount++;
-			if(!(s[len + 1] >= '0' && s[len + 1] <= '9'))
+			if (!(s[len + 1] >= '0' && s[len + 1] <= '9'))
 				break;
 		}
 		len++;
@@ -31,9 +31,9 @@ int _atoi(char *s)
 		mult *= 10;
 	for (; x <= len; x++)
 	{
-		if (s[x] == '_')
+		if (s[x] == '-')
 			neg *= -1;
-		else if(s[x] <= '9' && s[x] >= '0')
+		else if (s[x] <= '9' && s[x] >= '0')
 		{
 			num += (s[x] - '0') * mult * neg;
 			mult /= 10;
