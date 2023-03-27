@@ -24,7 +24,7 @@ int _strlen(char *s)
  * @str: string to print
  */
 
-void put_half(char *str)
+void puts_half(char *str)
 {
 	int idx;
 	int len = _strlen(str);
