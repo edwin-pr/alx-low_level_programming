@@ -9,15 +9,12 @@
  */
 char *_memcpy(char *dest, char *src, unsigned int n)
 {
-	int i;
-	int j;
+	char *original_dest = dest;/* Store the original destination pointer*/
 
-	j = n;
-
-	for (i = 0; i < j; i++)
+	while (n > 0)
 	{
-		dest[i] = src[j];
-		n--;
+	*dest++ = *src++; /*Copy bytes from src to dest*/
+	n--;
 	}
-	return (dest);
+	return (original_dest); /*Return the original destination pointer*/
 }
