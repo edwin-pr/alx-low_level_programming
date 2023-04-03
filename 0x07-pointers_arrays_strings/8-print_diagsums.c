@@ -2,7 +2,7 @@
 #include<stdio.h>
 /**
  * print_diagsums - Entry point
- * @s: array
+ * @a: integer pointer
  * @size: size of array
  * Return: Always 0 (Success)
  */
