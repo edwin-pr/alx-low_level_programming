@@ -28,9 +28,9 @@ char *argstostr(int ac, char **av)
 		{
 			total_len++;
 		}
-		total_len += strlen(av[i]) + 1;  /* add 1 for '\n'*/
+		total_len++;  /* add 1 for '\n'*/
 	}
-
+	total_len++;
 	/* allocate memory for concatenated string*/
 	result = malloc(total_len * sizeof(char));
 	if (result == NULL)
@@ -42,10 +42,12 @@ char *argstostr(int ac, char **av)
 	index = 0;
 	for (i = 0; i < ac; i++)
 	{
-		strcpy(result + index, av[i]);
-		index += strlen(av[i]);
+		for (j = 0; av[i][j]; j++)
+		{
+			result[index++] = av[i][j];
+		}
 		result[index++] = '\n';
 	}
-
+	result[index] =  '\0';
 	return (result);
 }
