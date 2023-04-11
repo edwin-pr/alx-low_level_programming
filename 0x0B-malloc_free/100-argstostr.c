@@ -11,7 +11,7 @@
 char *argstostr(int ac, char **av)
 {
 	int index;
-	int i;
+	int j, i;
 	int total_len;
 	char *result;
 
@@ -24,7 +24,11 @@ char *argstostr(int ac, char **av)
 	total_len = 0;
 	for (i = 0; i < ac; i++)
 	{
-		total_len += strlen(av[i]) + 2;  /* add 2 for '\n'*/
+		for (j = 0; av[i][j]; j++)
+		{
+			total_len++;
+		}
+		total_len += strlen(av[i]) + 1;  /* add 1 for '\n'*/
 	}
 
 	/* allocate memory for concatenated string*/
