@@ -40,7 +40,8 @@ char *argstostr(int ac, char **av)
 	{
 		strcpy(result + index, av[i]);
 		index += strlen(av[i]);
-		result[index++] = '\n';
+		if (i != ac - 1)
+			result[index++] = '\n';
 	}
 
 	return (result);
