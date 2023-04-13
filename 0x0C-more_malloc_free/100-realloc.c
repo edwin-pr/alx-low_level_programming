@@ -1,41 +1,52 @@
 #include "main.h"
-#include <stdlib.h>
-#include <string.h>
+#include<stdio.h>
+#include<stdlib.h>
+
 /**
- * _realloc -  function that reallocates a memory block using malloc and free
- * @ptr: pointer
- * @old_size: input
- * @new_size: input
- * Return: ptr.
- * if new_size == old_size, returns ptr without changes.
- * if malloc fails, returns NULL.
+ * *_realloc - function reallocates memory block
+ *
+ *@ptr: void pointer
+ *@old_size: unsigned int
+ *@new_size: unsigned int
+ *
+ * Return: pointer or NULL
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	void *p;
+	char *copyp = ptr;
+	char *p;
+	unsigned int i;
 
-	if (new_size == 0)
+	if (new_size == old_size)
+		return (ptr);
+	if (ptr == NULL)
+	{
+		ptr = malloc(new_size);
+		if (ptr == NULL)
+			return (NULL);
+		return (ptr);
+	}
+	if (new_size == 0 && ptr != NULL)
 	{
 		free(ptr);
 		return (NULL);
 	}
-	if (ptr == NULL)
-	{
-		return (malloc(new_size));
-	}
-	if (new_size == old_size)
-	{
-		return (ptr);
-	}
-
 	p = malloc(new_size);
 	if (p == NULL)
 	{
+		free(ptr);
 		return (NULL);
 	}
-
-	memcpy(p, ptr, (new_size < old_size) ? new_size : old_size);
+	if (new_size < old_size)
+	{
+		for (i = 0; i < old_size; i++)
+			p[i] = copyp[i];
+	}
+	if (new_size > old_size)
+	{
+		for (i = 0; i < old_size; i++)
+			p[i] = copyp[i];
+	}
 	free(ptr);
-
-	return p;
+	return (p);
 }
