@@ -3,8 +3,8 @@
 #include "dog.h"
 
 /**
- * print_dog - entry point of a function prints a struct dog
- * @d: struct dog 
+ * print_dog - prints a struct dog
+ * @d: struct dog to print
  */
 void print_dog(struct dog *d)
 {
