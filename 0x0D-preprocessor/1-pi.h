@@ -1,2 +1,6 @@
-VimCrypt~03!Á0¢^†i·Úÿ-_a
-'ëa¬o,Ñ5–•vß¼‹D[;~Cçaë*m¬Ïñp²¾{Õ¼ş|^Ÿ¼Nñ
+#ifndef PI_H
+#define PI_H
+
+#define PI 3.14159265359
+
+#endif
