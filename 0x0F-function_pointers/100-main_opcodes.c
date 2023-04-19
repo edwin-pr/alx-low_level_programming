@@ -3,7 +3,7 @@
 
 /**
  * main - a function that prints its own opcodes
- * @argc: number of arguments made 
+ * @argc: number of arguments made
  * @argv: array of arguments available
  *
  * Return: 0 on success

@@ -104,16 +104,16 @@ int main(void)
     return (0);
 }
 julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 0-main.c 0-print_name.c -o a
-julien@ubuntu:~/0x0e. Function pointers$ ./a 
+julien@ubuntu:~/0x0e. Function pointers$ ./a
 Hello, my name is Bob
 Hello, my uppercase name is BOB DYLAN
-julien@ubuntu:~/0x0e. Function pointers$ 
+julien@ubuntu:~/0x0e. Function pointers$
 Repo:
 
 GitHub repository: alx-low_level_programming
 Directory: 0x0F-function_pointers
 File: 0-print_name.c
-   
+
 1. If you spend too much time thinking about a thing, you'll never get it done
 mandatory
 Write a function that executes a function given as a parameter on each element of an array.
@@ -161,7 +161,7 @@ int main(void)
     return (0);
 }
 julien@ubuntu:~/0x0e. Function pointers$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-array_iterator.c -o b
-julien@ubuntu:~/0x0e. Function pointers$ ./b 
+julien@ubuntu:~/0x0e. Function pointers$ ./b
 0
 98
 402
@@ -172,13 +172,13 @@ julien@ubuntu:~/0x0e. Function pointers$ ./b
 0x192
 0x400
 0x1000
-julien@ubuntu:~//0x0e. Function pointers$ 
+julien@ubuntu:~//0x0e. Function pointers$
 Repo:
 
 GitHub repository: alx-low_level_programming
 Directory: 0x0F-function_pointers
 File: 1-array_iterator.c
-   
+
 2. To hell with circumstances; I create opportunities
 mandatory
 Write a function that searches for an integer.

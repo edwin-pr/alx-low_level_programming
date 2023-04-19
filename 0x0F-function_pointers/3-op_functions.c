@@ -51,7 +51,7 @@ int op_div(int a, int b)
 	return (a / b);
 }
 /**
- * op_mod - a function that Returns the remainder of the division of two numbers.
+ * op_mod - a function that prints remainder of the division of two numbers.
  * @a: first number.
  * @b: second number.
  *
