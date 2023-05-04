@@ -12,13 +12,13 @@ unsigned int flip_bits(unsigned long int n, unsigned long int m)
 {
 	unsigned int count = 0;
 	unsigned long int xor = n ^ m;
-    
+
 	/* Count the number of set bits in the XOR of the two numbers*/
 	while (xor)
 	{
 		count++;
 		xor &= (xor - 1);
 	}
-    
+
 	return (count);
 }
