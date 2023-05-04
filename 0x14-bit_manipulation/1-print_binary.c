@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include "main.h"
 /**
- * print_binary -  a function that prints the binary representation of a No.
+ * print_binary - function that prints the binary representation of a No.
  * @n: The number to convert and print.
  */
 void print_binary(unsigned long int n)
