@@ -1,55 +1,51 @@
-#include <stdio.h>
+#include "main.h"
 #include <stdlib.h>
-#include <unistd.h>
+
 /**
- * read_textfile - function that reads a text file and prints it to the POSIX
- * @filename: file name
- * @letters: characters
- * Return: filename is NULL return 0
- * if write fails or does not write the expected amount of bytes, return 0
+ * read_textfile - reads a text file and prints it to the POSIX standard output.
+ * @filename: the name of the file to read.
+ * @letters: the maximum number of letters to read from the file.
+ *
+ * Return: The number of bytes printed to standard output or 0 if an error occurred.
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	FILE *file;
-	char *buffer;
-	ssize_t bytes_read;
-	ssize_t bytes_written;
+	int fd; /* file descriptor */
+	ssize_t num_read, num_write;
+	char *buf;  /* Buffer to store text */
 
+	/* Check if the filename is NULL */
 	if (filename == NULL)
+		return (0);
+
+	/* open file to read and store and store fd */
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
+		return (0);
+
+	/* Allocating malloc to buffer */
+	buf = malloc(sizeof(char) * letters);
+	if (buf == NULL)
+		return (0);
+
+	/* read from file and stores number of bytes read */
+	num_read = read(fd, buf, letters);
+	if (num_read == -1)
 	{
+		free(buf);
+		close(fd);
 		return (0);
 	}
 
-	file = fopen(filename, "r");
-	if (file == NULL)
+	/* write standard output and store the number of bytes written */
+	num_write = write(STDOUT_FILENO, buf, num_read);
+	if (num_write == -1)
 	{
+		free(buf);
+		close(fd);
 		return (0);
 	}
+	close(fd);
+	return (num_read);
 
-	buffer = malloc(letters * sizeof(char));
-	if (buffer == NULL)
-	{
-		fclose(file);
-		return (0);
-	}
-
-	bytes_read = fread(buffer, sizeof(char), letters, file);
-	if (bytes_read == -1)
-	{
-		fclose(file);
-		free(buffer);
-		return (0);
-	}
-
-	bytes_written = write(STDOUT_FILENO, buffer, bytes_read);
-	if (bytes_written != bytes_read)
-	{
-		fclose(file);
-		free(buffer);
-		return (0);
-	}
-
-	fclose(file);
-	free(buffer);
-	return (bytes_written);
 }
