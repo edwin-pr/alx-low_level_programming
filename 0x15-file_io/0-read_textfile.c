@@ -10,17 +10,17 @@
  */
 ssize_t read_textfile(const char *filename, size_t letters)
 {
-	int filedesc; /* file descriptor */
-	ssize_t n_r, n_w;
+	int fd; /* file descriptor */
+	ssize_t num_read, num_write;
 	char *buf;  /* Buffer to store text */
 
 	/* Check if the filename is NULL */
 	if (filename == NULL)
 		return (0);
 
-	/* open file to read and store and store filedesc */
-	filedesc = open(filename, O_RDONLY);
-	if (filedesc == -1)
+	/* open file to read and store and store fd */
+	fd = open(filename, O_RDONLY);
+	if (fd == -1)
 		return (0);
 
 	/* Allocating malloc to buffer */
@@ -29,24 +29,23 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 
 	/* read from file and stores number of bytes read */
-	n_r = read(filedesc, buf, letters);
-	if (n_r == -1)
+	num_read = read(fd, buf, letters);
+	if (num_read == -1)
 	{
 		free(buf);
-		close(filedesc);
+		close(fd);
 		return (0);
 	}
 
 	/* write standard output and store the number of bytes written */
-	n_w = write(STDOUT_FILENO, buf, n_r);
-	if (n_w == -1)
+	num_write = write(STDOUT_FILENO, buf, num_read);
+	if (num_write == -1)
 	{
 		free(buf);
-		close(filedesc);
+		close(fd);
 		return (0);
 	}
-	close(filedesc);
-	return (n_r);
+	close(fd);
+	return (num_read);
 
 }
-
