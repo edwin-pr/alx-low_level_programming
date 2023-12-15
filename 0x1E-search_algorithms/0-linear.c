@@ -21,7 +21,7 @@ int linear_search(int *array, size_t size, int value)
 /**
  * recurse_helper - recursive implement of linear search
  * @arr: pointer to array of ints
- * @size: size of array
+ * @size: size of array.........................
  * @val: value to locate
  * @idx: current index
  *
